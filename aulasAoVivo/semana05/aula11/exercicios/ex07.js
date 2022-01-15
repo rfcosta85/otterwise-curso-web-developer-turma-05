@@ -11,8 +11,22 @@ const students = [
   { name: 'Rodrigo', grade: [0, 0, 0] },
 ]
 
-const someGrades = (accumulator, grade) => accumulator + grade
+// const arrayOfName = (studentName) => studentName.name
+// const arrayOfGrades = (studentGrade) => studentGrade.grade
 
-const totalGrades = students.grade(someGrades)
+// // const result = students.map(arrayOfName)
+// const result2 = students.map(arrayOfGrades)
+// const finalResult = result2.reduce((acc, atual) => {
+//   return acc + atual.grade
+// })
+// console.log(result)
+// console.log(finalResult)
 
-console.log(totalGrades)
+// const resultado = students
+//   .map((a) => a.grade)
+//   .reduce(function (acc, atual) {
+//     console.log(acc, atual)
+//     return acc + atual
+//   })
+
+// console.log(resultado)
