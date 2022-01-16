@@ -98,3 +98,5 @@ const travessa = [
 const bestSaler = travessa.sort((a, b) => {
   return b.quantidadeVendido - a.quantidadeVendido
 })
+
+console.log(bestSaler)

@@ -110,22 +110,24 @@ const idEmployee = employees.find((worker) => {
   return worker.id === findId
 })
 
-function hasEmployee() {
-  if (idEmployee) {
-    console.log(idEmployee)
-  } else {
-    console.log(`Nenhum usuário identificado com o id ${findId} informado`)
-  }
-}
+console.log(idEmployee)
 
-hasEmployee()
+// function hasEmployee() {
+//   if (idEmployee) {
+//     console.log(idEmployee)
+//   } else {
+//     console.log(`Nenhum usuário identificado com o id ${findId} informado`)
+//   }
+// }
 
-let usersActives = []
+// hasEmployee()
+
 const findActivesEmployees = employees.map((activeWorker) => {
   if (activeWorker.active) {
-    usersActives = activeWorker.name
+    return activeWorker.name
+  } else {
+    return ''
   }
-  return usersActives
 })
 
 console.log(findActivesEmployees)
@@ -138,4 +140,62 @@ const findCltEmployees = employees.map((cltWorker) => {
   return cltWorkers
 })
 
-console.log(findActivesEmployees)
+console.log(findCltEmployees)
+
+const addElement = employees.map((value) => {
+  return employees.push({ wage: '' })
+})
+
+console.log(employees)
+
+const onlyClt = employees.map((cltWorkers) => {
+  if (cltWorkers.type === 'clt') {
+    return cltWorkers.name
+  } else {
+    return ''
+  }
+})
+
+const cltNames = onlyClt
+let onlyCltNames = []
+let onlyEmpty = []
+
+cltNames.map((onlyNames) => {
+  if (onlyNames != '') {
+    onlyCltNames += onlyNames + ', '
+  } else {
+    onlyEmpty += onlyNames
+  }
+  return onlyCltNames
+})
+
+console.log(onlyCltNames)
+
+const onlyPJ = employees.map((pjtWorkers) => {
+  if (pjtWorkers.type === 'pj') {
+    return pjtWorkers.name
+  } else {
+    return ''
+  }
+})
+
+const pjNames = onlyPJ
+let onlyPjNames = []
+let onlyPjEmpty = []
+
+pjNames.map((onlyPjNames) => {
+  if (onlyPjNames != '') {
+    onlyPjNames += onlyPjNames + ', '
+  } else {
+    onlyPjEmpty += onlyPjNames
+  }
+  return onlyPjNames
+})
+
+console.log(onlyPjNames)
+
+const sortByAge = findActivesEmployees.sort((a, b) => {
+  return a.birth_date - b.birth_date
+})
+
+console.log(sortByAge) // Cansado faço depois

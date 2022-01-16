@@ -4,29 +4,24 @@ retorne uma lista com os alunos que tiraram 0 em todas as provas.
 */
 
 const students = [
-  { name: 'Gustavo', grade: [10, 9, 9.5] },
-  { name: 'Alessandro', grade: [8, 6, 7] },
-  { name: 'Victor', grade: [6, 8, 7.5] },
-  { name: 'Mari', grade: [10, 10, 10] },
+  { name: 'Ingrid', grade: [10, 9, 9.5] },
+  { name: 'Antônio', grade: [8, 6, 7] },
   { name: 'Rodrigo', grade: [0, 0, 0] },
+  { name: 'Mara', grade: [6, 8, 7.5] },
+  { name: 'Aline', grade: [10, 10, 10] },
+  { name: 'Tony Stark', grade: [0, 10, 10] },
+  { name: 'Joaquim', grade: [0, 0, 0] },
 ]
 
-// const arrayOfName = (studentName) => studentName.name
-// const arrayOfGrades = (studentGrade) => studentGrade.grade
+const gradesZero = (arrayNota) => {
+  let controlArray = []
+  let method = (valor) => valor === 0
+  arrayNota.forEach((element) => {
+    if (element.grade.every(method)) {
+      controlArray.push(element.name)
+    }
+  })
+  return controlArray
+}
 
-// // const result = students.map(arrayOfName)
-// const result2 = students.map(arrayOfGrades)
-// const finalResult = result2.reduce((acc, atual) => {
-//   return acc + atual.grade
-// })
-// console.log(result)
-// console.log(finalResult)
-
-// const resultado = students
-//   .map((a) => a.grade)
-//   .reduce(function (acc, atual) {
-//     console.log(acc, atual)
-//     return acc + atual
-//   })
-
-// console.log(resultado)
+console.log(gradesZero(students))
