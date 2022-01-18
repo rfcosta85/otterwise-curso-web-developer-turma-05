@@ -95,8 +95,128 @@ const travessa = [
   },
 ]
 
-const bestSaler = travessa.sort((a, b) => {
+// sort com os livros mais vendidos
+
+const bestSeller = travessa.sort((a, b) => {
   return b.quantidadeVendido - a.quantidadeVendido
 })
 
-console.log(bestSaler)
+// 1- Autor do livro mais vendido
+
+const bestSellerAuthor = bestSeller.find((author, index) => {
+  if (index === 0) {
+    return author.autor
+  }
+})
+
+console.log(`Autor do livro mais vendido: `, bestSellerAuthor)
+
+//-----------------------------------------------------------------
+
+//2- Filtrar livros que tem um preço abaixo do valor que será inserido
+
+const findBooksByPrice = 30
+
+const filterBooksByParamatherByLessPrice = travessa.filter((value) => {
+  if (value.valor < findBooksByPrice) {
+    return value
+  }
+})
+
+console.log(`Resultado da sua busca: `, filterBooksByParamatherByLessPrice)
+
+//------------------------------------------------------------------------------
+
+//3-Filtrar livros que tem um preço acima do valor que será inserido;
+
+const filterBooksByParamatherByHigePrice = travessa.filter((value) => {
+  if (value.valor > findBooksByPrice) {
+    return value
+  }
+})
+
+console.log(`Resultado da sua busca: `, filterBooksByParamatherByHigePrice)
+
+//4-Pesquisa pelo nome do livro;
+
+const searchByNameOfBook = 'gestão de alta performance'
+
+const searchBookByName = travessa.find((nameOfBook) => {
+  if (nameOfBook.nome === searchByNameOfBook) {
+    return nameOfBook
+  }
+})
+
+console.log(`Livro encontrado: `, searchBookByName)
+
+//5-Pesquisa pelo autor do livro;
+
+const serachByNameOfAuthor = 'Napoleon Hill'
+
+const searchByAuthorName = travessa.find((nameOfAuthor) => {
+  if (nameOfAuthor.nome === serachByNameOfAuthor) {
+    return nameOfAuthor
+  }
+})
+
+console.log(`Autor encontrado: `, serachByNameOfAuthor)
+
+//-------------------------------------------------------------
+
+//6-Pesquisa pelo código do livro;
+
+const searchByBookOfCode = '8543102146'
+
+const searchByCodeOfBook = travessa.find((codeOfBook) => {
+  if (codeOfBook.cod === searchByBookOfCode) {
+    return codeOfBook
+  }
+})
+
+console.log(
+  `Código do livro ${searchByBookOfCode}
+livro encontrado: `,
+  searchByCodeOfBook
+)
+
+//-------------------------------------------
+//7- Lista do Estoque;
+
+const stock = travessa.map((books) => {
+  return books
+})
+
+console.log('Estoque: ', stock)
+
+//------------------------------
+// 8- Top X livros mais vendidos
+
+const listMostSellers = 3
+
+const mapping = bestSeller.filter((firstPositions, index) => {
+  if (index < listMostSellers) {
+    return firstPositions
+  }
+})
+
+console.log(`Top ${listMostSellers} de livros mais vendidos: `, mapping)
+
+//------------------------------------------------
+
+//9- Aumento de X % no preço dos livros (X será um valor inserido como
+//entrada).
+
+const percentOfGrowth = 0.1
+
+const newStockPrices = travessa.map((newValue) => {
+  let values = newValue.valor * 0.1 + newValue.valor
+  return values.toFixed(2)
+})
+
+console.log(
+  `Aumento de ${
+    percentOfGrowth * 100
+  } % nos livros, confira nova lista de preços: 
+`,
+  newStockPrices
+)
