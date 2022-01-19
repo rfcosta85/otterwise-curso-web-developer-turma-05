@@ -104,98 +104,60 @@ const employees = [
     type: 'clt',
   },
 ]
+// A - Função para retornar apenas o funcionário com o id informado:
 
 const findId = 6
-const idEmployee = employees.find((worker) => {
+const idEmployee = employees.filter((worker) => {
   return worker.id === findId
 })
 
-console.log(idEmployee)
+console.log(`Id: ${findId} `,idEmployee)
 
-// function hasEmployee() {
-//   if (idEmployee) {
-//     console.log(idEmployee)
-//   } else {
-//     console.log(`Nenhum usuário identificado com o id ${findId} informado`)
-//   }
-// }
+//B - Função para filtrar apenas os funcionários ativos na empresa:
 
-// hasEmployee()
-
-const findActivesEmployees = employees.map((activeWorker) => {
+const findActivesEmployees = employees.filter((activeWorker) => {
   if (activeWorker.active) {
     return activeWorker.name
-  } else {
-    return ''
   }
 })
 
-console.log(findActivesEmployees)
+console.log(`Funcionários ativos: ` ,findActivesEmployees)
 
-let cltWorkers = []
-const findCltEmployees = employees.map((cltWorker) => {
+//C - Função para filtrar apenas funcionários clt
+
+const findCltEmployees = employees.filter((cltWorker) => {
   if (cltWorker.type === 'clt') {
-    cltWorkers = cltWorker.name
-  }
-  return cltWorkers
+    return cltWorker.name
+  }  
 })
 
-console.log(findCltEmployees)
+console.log(`Apenas funcionários CLT: `, findCltEmployees)
 
-const addElement = employees.map((value) => {
-  return employees.push({ wage: '' })
-})
+//D - Função para criar uma nova estrutura onde cada funcionário receberá
+// uma nova informação de base salarial
 
-console.log(employees)
+// const addElement = employees.map((value) => {
+//   return employees.push({ wage: '' })
+// })
 
-const onlyClt = employees.map((cltWorkers) => {
-  if (cltWorkers.type === 'clt') {
-    return cltWorkers.name
+// console.log(employees)
+
+//E - Função onde separa em 2 grupos os funcionários pj e clt
+
+let clts = []
+let pjs = []
+
+const showEmployeesByType = employees.filter((typeOfEmploye) => {
+  if(typeOfEmploye.type === "clt") {
+    clts += typeOfEmploye.name + ', '
   } else {
-    return ''
-  }
+    pjs += typeOfEmploye.name + ', '
+  }  
 })
+console.log(`CLTs: ${clts}
+  PJs: ${pjs}`)
 
-const cltNames = onlyClt
-let onlyCltNames = []
-let onlyEmpty = []
+  //F - Função que retorna apenas funcionários ativos ordenados por ordem
+// de idade
 
-cltNames.map((onlyNames) => {
-  if (onlyNames != '') {
-    onlyCltNames += onlyNames + ', '
-  } else {
-    onlyEmpty += onlyNames
-  }
-  return onlyCltNames
-})
 
-console.log(onlyCltNames)
-
-const onlyPJ = employees.map((pjtWorkers) => {
-  if (pjtWorkers.type === 'pj') {
-    return pjtWorkers.name
-  } else {
-    return ''
-  }
-})
-
-const pjNames = onlyPJ
-let onlyPjNames = []
-let onlyPjEmpty = []
-
-pjNames.map((onlyPjNames) => {
-  if (onlyPjNames != '') {
-    onlyPjNames += onlyPjNames + ', '
-  } else {
-    onlyPjEmpty += onlyPjNames
-  }
-  return onlyPjNames
-})
-
-console.log(onlyPjNames)
-
-const sortByAge = findActivesEmployees.sort((a, b) => {
-  return a.birth_date - b.birth_date
-})
-
-console.log(sortByAge) // Cansado faço depois
