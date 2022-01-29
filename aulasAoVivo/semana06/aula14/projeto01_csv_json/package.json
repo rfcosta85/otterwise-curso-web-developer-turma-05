@@ -1,0 +1,12 @@
+{
+  "name": "projeto01_csv_json",
+  "version": "1.0.0",
+  "description": "Transformar um dado CSV em JSON",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rodrigo Costa",
+  "license": "ISC"
+}
