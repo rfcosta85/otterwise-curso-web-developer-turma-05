@@ -1,0 +1,33 @@
+* {
+  border: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+.green {
+  background-color: green;
+  color: white;
+  text-align: center;
+}
+.red {
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+}
