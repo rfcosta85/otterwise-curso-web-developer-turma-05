@@ -1,0 +1,11 @@
+.btn {
+  background-color: red;
+}
+
+.btn:hover {
+  background-color: blue;
+}
+
+.list li:nth-child(2n) {
+  background-color: yellow;
+}
